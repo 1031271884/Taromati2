@@ -8,3 +8,6 @@ sstp.allowunspecifiedsend,1
 seriko.alignmenttodesktop,free
 icon,kikka.ico
 shiori,aya.dll
+craftman,8 and other contributors
+craftmanw,8 and other contributors
+craftmanurl,https://github.com/steve02081504/Taromati2/blob/master/md/contributors.md
