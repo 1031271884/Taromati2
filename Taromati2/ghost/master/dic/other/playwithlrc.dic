@@ -1281,10 +1281,10 @@ OnMusicPlayerCmd{
 //---------------------------------------------------
 OnMusicPlayListAdd{
 	if reference0 == 'folder' {
-		"\C\![open,dialog,folder,--id=musicfolder,--title=请选择音乐文件夹]"
+		"\C\![open,dialog,folder,--id=musicfolder,--title=请选择音乐文件夹,--dir=__system_mymusic__]"
 	}
 	elseif reference0 == 'file' {
-		"\C\![open,dialog,open,--id=musicfile,--title=请选择音乐文件,--filter=音乐文件(mid;wav;mp3;m4a;au;ogg;wma;ape;flac;avi;wmv;rm;rmvb;mp4;mkv;flv)|*.mid;*.wav;*.mp3;*.m4a;*.au;*.ogg;*.wma;*.ape;*.flac,*avi,*.wmv,*.rm,*.rmvb,*.mp4,*.mkv,*.flv,*.mpg]"
+		"\C\![open,dialog,open,--id=musicfile,--title=请选择音乐文件,--dir=__system_mymusic__,--filter=音乐文件(mid;wav;mp3;m4a;au;ogg;wma;ape;flac;avi;wmv;rm;rmvb;mp4;mkv;flv)|*.mid;*.wav;*.mp3;*.m4a;*.au;*.ogg;*.wma;*.ape;*.flac,*avi,*.wmv,*.rm,*.rmvb,*.mp4,*.mkv,*.flv,*.mpg]"
 	}
 	elseif reference0 == 'savelist' {
 		"\C\![open,dialog,save,--id=musicsavelist,--title=请输入要保存的列表文件,--filter=M3U 文件(m3u)|*.m3u|M3U8 文件(m3u8)|*.m3u8,--ext=m3u|m3u8]"

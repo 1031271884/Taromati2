@@ -705,7 +705,9 @@ OnBatteryLow{
 		\0\s[3]如果需要的话，让我们先退场也没问题的\e'
 }
 OnBatteryNotify{
-	if reference0 != -1 && reference0 < 10{
+	if ISVAR('lowpowerautoshutoff') == 0
+		lowpowerautoshutoff=1
+	if reference0 != -1 && reference0 < 10 && lowpowerautoshutoff{
 		'\0\s[3]很抱歉\w9，为了更长时间的续航\s[8]\w9，我们就先撤退了\n/
 		\1\s[10]再见啦\w9\w9\-'
 		return

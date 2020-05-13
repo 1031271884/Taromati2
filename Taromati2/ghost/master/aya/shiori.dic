@@ -39,6 +39,20 @@ CALLALLFUNCTIONBEGINAS{
 		EVAL(_V)
 	}
 }
+CALLALLFUNCTIONINRE{
+	_L= GETFUNCLIST()
+	foreach _L;_V{
+		if RE_GREP(_V,_argv[0])
+			EVAL(_V)
+	}
+}
+ERASEALLVARINRE{
+	_L= GETVARLIST()
+	foreach _L;_V{
+		if RE_GREP(_V,_argv[0])
+			ERASEVAR(_V)
+	}
+}
 ClearAyaTempVar{
 	// 保存する必要のない変数を削除
 	ERASEVAR('S_CHARSET')

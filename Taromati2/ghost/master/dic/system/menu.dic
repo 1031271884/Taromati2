@@ -678,6 +678,8 @@ Select.Option{
 	--
 	'■其他设定■\n'
 	--
+	"低电量自动关闭　\_l[120]\q[%(_t[TOINT(lowpowerautoshutoff)]) ON,Onusage,lowpowerautoshutoff,1]  ・  \_l[180]\q[%(_t[1 - TOINT(lowpowerautoshutoff)]) OFF,Onusage,lowpowerautoshutoff,0]\n"
+	--
 	"消灭指示表示　\_l[120]\q[%(_t[TOINT(vanishbutton.visible)]) ON,OnVanishbuttonSwitch,1]  ・  \_l[180]\q[%(_t[1 - TOINT(vanishbutton.visible)]) OFF,OnVanishbuttonSwitch,0]\n"
 	--
 	"硬件变动提醒　\_l[120]\q[%(_t[TOINT(DeviceChangeAlert)]) ON,Onusage,DeviceChangeAlert,1]  ・  \_l[180]\q[%(_t[1 - TOINT(DeviceChangeAlert)]) OFF,Onusage,DeviceChangeAlert,0]\n"
@@ -1039,16 +1041,16 @@ Select.lovedn3{
 }
 //----------额外的聊天---------------------------------------------------------------------------------------------------
 OnIntimacy{
-if Intimacymode == 1{
-  "\q[◇额外的聊天,Intimacy]\n"
-}
+	if Intimacymode == 1{
+		"\q[◇额外的聊天,Intimacy]\n"
+	}
 }
 Select.Intimacy{
-Intimacymode = 1
-"\1\s[10]\0\s[0]%(username)，\w9\w9想要聊什么呢？\n\n\q[◇有些事情想问你,Knowintimacy]\n\q[◇没事了,Exit]\e"
+	Intimacymode = 1
+	"\1\s[10]\0\s[0]%(username)，\w9\w9想要聊什么呢？\n\n\q[◇有些事情想问你,Knowintimacy]\n\q[◇没事了,Exit]\e"
 }
 Select.Knowintimacy{
-"\1\s[12]\0\s[20]那么，\w9\w9%(username)想要知道什么？\n\n\q[◇对我的感觉,Intimacytest1]\n\q[◇对我的感情,Intimacytest2]\n\q[◇没事了,Exit]"
+	"\1\s[12]\0\s[20]那么，\w9\w9%(username)想要知道什么？\n\n\q[◇对我的感觉,Intimacytest1]\n\q[◇对我的感情,Intimacytest2]\n\q[◇没事了,Exit]"
 }
 Select.Intimacytest1{
 	//大于等于0小于等于79
