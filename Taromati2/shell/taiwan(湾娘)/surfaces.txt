@@ -1169,7 +1169,7 @@ surface110
 1pattern4,2105,10,overlay,96,11
 
 2interval,talk,4
-2pattern0,2113,0,overlay,76,84
+2pattern0,2103,0,overlay,76,84
 2pattern1,-1,10,overlay,76,84
 
 
