@@ -1,5 +1,5 @@
 OnChoiceSelect{
-	EVAL("Select.%(reference0)")
+	EVAL("Select.%reference0")
 }
 OnAITalk{
 	if specialmode!=''//特殊事件中随机谈话禁止

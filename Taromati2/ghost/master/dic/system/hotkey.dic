@@ -9,7 +9,7 @@ OnExitKeyCodeTest{
 }
 OnKeyPress{
 	/*
-	by steve02081504 copy form Prototype/ReShade/PersonalFiles/KeyCodes.h
+	copy form Prototype/ReShade/PersonalFiles/KeyCodes.h by steve02081504
 	.---.---.---.---.---.---.---.---.---.---.---.---.---.------.  .---.---.---.  .---.---.---.---.
 	|192| 49| 50| 51| 52| 53| 54| 55| 56| 57| 48|189|187|   8  |  | 45| 36| 33|  |144|111|106|109|
 	:---'---'---'---'---'---'---'---'---'---'---'---'---'------:  :---:---:---:  :---:---:---:---:
@@ -360,8 +360,8 @@ OnCalculateVar{
 		reference1 = _argv[1]
 	if reference1 == 'nothing'
 		return
-	if reference1 != 'force_run' && reference1 != 'no_convert' && ('，' _in_ reference0 || '（' _in_ reference0 || '）' _in_ reference0 || '‘' _in_ reference0 || '’' _in_ reference0 || '“' _in_ reference0 || '”' _in_ reference0 || '！' _in_ reference0 || '、' _in_ reference0|| '？' _in_ reference0 || '。' _in_ reference0 || '【' _in_ reference0 || '】' _in_ reference0){
-		'转换表达式中的全角符号为半角？\n/
+	if reference1 != 'warning_func_run' && reference1 != 'force_run' && reference1 != 'no_convert' && ('，' _in_ reference0 || '（' _in_ reference0 || '）' _in_ reference0 || '‘' _in_ reference0 || '’' _in_ reference0 || '“' _in_ reference0 || '”' _in_ reference0 || '！' _in_ reference0 || '、' _in_ reference0|| '？' _in_ reference0 || '。' _in_ reference0 || '【' _in_ reference0 || '】' _in_ reference0){
+		'\0\s[20]转换表达式中的全角符号为半角？\n/
 		\q[◇好,OnCalculateVar.CharConverter,'+SakuraScriptArgConverter(reference0)+']\n/
 		\q[◇直接执行,OnCalculateVar,'+SakuraScriptArgConverter(reference0)+',no_convert]\n/
 		\q[◇算了,Cancel]\n/
@@ -371,7 +371,7 @@ OnCalculateVar{
 	_var = reference0[0,'=']
 	_var = _var[0,'[']
 	_func = reference0[0,'(']
-	if ISVAR(_var) == 0 && ISFUNC(_func) == 0 && reference1 != 'force_run'{
+	if ISVAR(_var) == 0 && ISFUNC(_func) == 0 && reference1 != 'warning_func_run' && reference1 != 'force_run'{
 		'\0\s[3]没有这个变量或函数……\n'
 		--
 		'/
@@ -379,7 +379,28 @@ OnCalculateVar{
 		\q[◇算了,Cancel]/
 		'
 		return
-	}else{
+	}
+	if reference1 != 'warning_func_run' && (RE_GREP(_func,'^Reset') || _func == 'OnFirstBoot' || _func == 'MAGICLOAD'){
+		'\0\s[7]这是一个危险函数\n\w9\w9\s[8]确认执行吗？\n'
+		--
+		'/
+		\q[◇仍然执行,OnCalculateVar,'+SakuraScriptArgConverter(reference0)+',warning_func_run]\n/
+		\q[◇算了,'
+		--
+		if _func == 'OnFirstBoot' || _func == 'MAGICLOAD' || _func == 'Reset' || _func == 'ResetAll'
+			'Thanks'
+		else
+			'Cancel'
+		--
+		']/
+		'
+		return
+	}
+	if reference1 == 'warning_func_run'{
+		'\0\s[3]好的\w9…\w9…\w9…\n'
+	}
+	--
+	{
 		'\0\s[0]表达式『\_q'+REPLACE(reference0,'\','\\')+'\_q』的执行结果为：\n'
 		--
 		__t=TOSTR(EVAL(reference0))

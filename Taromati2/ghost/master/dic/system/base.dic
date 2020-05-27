@@ -6,6 +6,11 @@ NeedRewrite:void{}
 Select.Cancel{
 	"\0\s[6]好的\e"
 }
+Select.Thanks{
+	'\0\s[2]啊\w9…\w9…\n/
+	\s[1]谢谢。\n/
+	'
+}
 UnFinished{
 	'\0\s[3]很遗憾\w9\w9，这是一个未完成的机能。\n/
 	\1\s[12]该好好努力啦\w9\n/

@@ -1,7 +1,6 @@
 /////////文　ゴーストテンプレート
 /////////种々のイベント辞书
 /////////written by umeici.
-
 //平台更新反应by steve02081504
 OnBasewareUpdating{
 	'\1\s[10]\0\s[6]嗯…\w9\w9\s[0]\n'
@@ -11,6 +10,8 @@ OnBasewareUpdating{
 	当前版本%Baseware.Version\n\w9\w9/
 	开始更新\n/
 	"
+	--
+	'\s[6]\w9\w9\w9'
 }
 OnBasewareUpdated{
 	'\0\s[5]我回来了\n\w9\w9'
